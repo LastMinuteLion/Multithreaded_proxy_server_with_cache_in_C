@@ -1,9 +1,9 @@
-
-
 # Proxy Server with Cache
 
 ## Overview
 This project implements a multi-threaded HTTP proxy server with caching capabilities. The server listens for client requests, forwards them to the appropriate remote server, and caches the responses to improve performance for subsequent requests.
+
+For more information, visit [Eraser Workspace](https://app.eraser.io/workspace/Z0PC1gUS3qRn9oAB8mDI?origin=share).
 
 ## Features
 - **Multi-threading**: Handles multiple client requests simultaneously using POSIX threads.
@@ -44,7 +44,7 @@ To run the server on port 8080:
 - **505**: HTTP Version Not Supported
 
 ## Contributing
-Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes.
+Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes. For more details, check the [Eraser Workspace](https://app.eraser.io/workspace/Z0PC1gUS3qRn9oAB8mDI?origin=share).
 
 ## License
 This project is licensed under the MIT License.
