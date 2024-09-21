@@ -5,7 +5,7 @@ This project implements a multi-threaded HTTP proxy server with caching capabili
 
 For more information, visit [Eraser Workspace](https://app.eraser.io/workspace/Z0PC1gUS3qRn9oAB8mDI?origin=share).
 
-![Your Image Description](your_image.png)  <!-- Add your image here -->
+![Model Diagram of Web Server Working](WebServer.png)  <!-- Add your image here -->
 
 ## Features
 - **Multi-threading**: Handles multiple client requests simultaneously using POSIX threads.
@@ -37,7 +37,7 @@ To run the server on port 8080:
 ./proxy_server_with_cache 8080
 ```
 
-![Model Diagram of Web Server Working](WebServer.png)  <!-- Add your image here -->
+ <!-- Add your image here -->
 
 ## Error Codes
 - **400**: Bad Request
