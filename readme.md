@@ -35,6 +35,8 @@ To run the server on port 8080:
 ./proxy_server_with_cache 8080
 ```
 
+![Model Diagram of Web Server Working](WebServer.png)  <!-- Add your image here -->
+
 ## Error Codes
 - **400**: Bad Request
 - **403**: Forbidden
