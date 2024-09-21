@@ -5,6 +5,8 @@ This project implements a multi-threaded HTTP proxy server with caching capabili
 
 For more information, visit [Eraser Workspace](https://app.eraser.io/workspace/Z0PC1gUS3qRn9oAB8mDI?origin=share).
 
+![Your Image Description](your_image.png)  <!-- Add your image here -->
+
 ## Features
 - **Multi-threading**: Handles multiple client requests simultaneously using POSIX threads.
 - **Caching**: Stores responses from remote servers to reduce latency for repeated requests.
