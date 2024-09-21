@@ -64,9 +64,8 @@ int connectRemoteServer(char* host_addr, int port){
 
 	// Connect to Remote server ----------------------------------------------------
 
-	if( connect(remoteSocket, (struct sockaddr*)&server_addr, (socklen_t)sizeof(server_addr)) < 0 )
-	{
-		fprintf(stderr, "Error in connecting !\n"); 
+	if( connect(remoteSocket, (struct sockaddr*)&server_addr, (socklen_t)sizeof(server_addr)) < 0 ) {
+		fprintf(stderr, "Error in connecting!\n"); 
 		return -1;
 	}
 	// free(host_addr);
@@ -85,35 +84,41 @@ int sendErrorMessage(int socket, int status_code)
 
 	switch(status_code)
 	{
-		case 400: snprintf(str, sizeof(str), "HTTP/1.1 400 Bad Request\r\nContent-Length: 95\r\nConnection: keep-alive\r\nContent-Type: text/html\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>400 Bad Request</TITLE></HEAD>\n<BODY><H1>400 Bad Rqeuest</H1>\n</BODY></HTML>", currentTime);
-				  printf("400 Bad Request\n");
-				  send(socket, str, strlen(str), 0);
-				  break;
+		case 400:
+			snprintf(str, sizeof(str), "HTTP/1.1 400 Bad Request\r\nContent-Length: 95\r\nConnection: keep-alive\r\nContent-Type: text/html\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>400 Bad Request</TITLE></HEAD>\n<BODY><H1>400 Bad Request</H1>\n</BODY></HTML>", currentTime);
+			printf("400 Bad Request\n");
+			send(socket, str, strlen(str), 0);
+			break;
 
-		case 403: snprintf(str, sizeof(str), "HTTP/1.1 403 Forbidden\r\nContent-Length: 112\r\nContent-Type: text/html\r\nConnection: keep-alive\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>403 Forbidden</TITLE></HEAD>\n<BODY><H1>403 Forbidden</H1><br>Permission Denied\n</BODY></HTML>", currentTime);
-				  printf("403 Forbidden\n");
-				  send(socket, str, strlen(str), 0);
-				  break;
+		case 403:
+			snprintf(str, sizeof(str), "HTTP/1.1 403 Forbidden\r\nContent-Length: 112\r\nContent-Type: text/html\r\nConnection: keep-alive\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>403 Forbidden</TITLE></HEAD>\n<BODY><H1>403 Forbidden</H1><br>Permission Denied\n</BODY></HTML>", currentTime);
+			printf("403 Forbidden\n");
+			send(socket, str, strlen(str), 0);
+			break;
 
-		case 404: snprintf(str, sizeof(str), "HTTP/1.1 404 Not Found\r\nContent-Length: 91\r\nContent-Type: text/html\r\nConnection: keep-alive\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>404 Not Found</TITLE></HEAD>\n<BODY><H1>404 Not Found</H1>\n</BODY></HTML>", currentTime);
-				  printf("404 Not Found\n");
-				  send(socket, str, strlen(str), 0);
-				  break;
+		case 404:
+			snprintf(str, sizeof(str), "HTTP/1.1 404 Not Found\r\nContent-Length: 91\r\nContent-Type: text/html\r\nConnection: keep-alive\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>404 Not Found</TITLE></HEAD>\n<BODY><H1>404 Not Found</H1>\n</BODY></HTML>", currentTime);
+			printf("404 Not Found\n");
+			send(socket, str, strlen(str), 0);
+			break;
 
-		case 500: snprintf(str, sizeof(str), "HTTP/1.1 500 Internal Server Error\r\nContent-Length: 115\r\nConnection: keep-alive\r\nContent-Type: text/html\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>500 Internal Server Error</TITLE></HEAD>\n<BODY><H1>500 Internal Server Error</H1>\n</BODY></HTML>", currentTime);
-				  //printf("500 Internal Server Error\n");
-				  send(socket, str, strlen(str), 0);
-				  break;
+		case 500:
+			snprintf(str, sizeof(str), "HTTP/1.1 500 Internal Server Error\r\nContent-Length: 115\r\nConnection: keep-alive\r\nContent-Type: text/html\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>500 Internal Server Error</TITLE></HEAD>\n<BODY><H1>500 Internal Server Error</H1>\n</BODY></HTML>", currentTime);
+			//printf("500 Internal Server Error\n");
+			send(socket, str, strlen(str), 0);
+			break;
 
-                  case 501: snprintf(str, sizeof(str), "HTTP/1.1 501 Not Implemented\r\nContent-Length: 103\r\nConnection: keep-alive\r\nContent-Type: text/html\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>404 Not Implemented</TITLE></HEAD>\n<BODY><H1>501 Not Implemented</H1>\n</BODY></HTML>", currentTime);
-				  printf("501 Not Implemented\n");
-				  send(socket, str, strlen(str), 0);
-				  break;
+                  case 501:
+			snprintf(str, sizeof(str), "HTTP/1.1 501 Not Implemented\r\nContent-Length: 103\r\nConnection: keep-alive\r\nContent-Type: text/html\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>404 Not Implemented</TITLE></HEAD>\n<BODY><H1>501 Not Implemented</H1>\n</BODY></HTML>", currentTime);
+			printf("501 Not Implemented\n");
+			send(socket, str, strlen(str), 0);
+			break;
 
-		case 505: snprintf(str, sizeof(str), "HTTP/1.1 505 HTTP Version Not Supported\r\nContent-Length: 125\r\nConnection: keep-alive\r\nContent-Type: text/html\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>505 HTTP Version Not Supported</TITLE></HEAD>\n<BODY><H1>505 HTTP Version Not Supported</H1>\n</BODY></HTML>", currentTime);
-				  printf("505 HTTP Version Not Supported\n");
-				  send(socket, str, strlen(str), 0);
-				  break;
+		case 505:
+			snprintf(str, sizeof(str), "HTTP/1.1 505 HTTP Version Not Supported\r\nContent-Length: 125\r\nConnection: keep-alive\r\nContent-Type: text/html\r\nDate: %s\r\nServer: VaibhavN/14785\r\n\r\n<HTML><HEAD><TITLE>505 HTTP Version Not Supported</TITLE></HEAD>\n<BODY><H1>505 HTTP Version Not Supported</H1>\n</BODY></HTML>", currentTime);
+			printf("505 HTTP Version Not Supported\n");
+			send(socket, str, strlen(str), 0);
+			break;
 
 		default:  return -1;
 
@@ -259,7 +264,7 @@ void* thread_fn(void* socketNew){
             }
             send(socket, response, strlen(response), 0);
         }
-        printf("Date retrieved from cache\n");
+        printf("Data retrieved from cache\n");
         printf("Cache size: %d\n", cache_size);
         printf("%s\n\n", response);
         free(tempReq);
@@ -392,16 +397,16 @@ int main(int argc, char* argv[]){
 cache_element* find(char* url){
     cache_element* site = NULL;
     int temp_lock_val = pthread_mutex_lock(&lock);
-    printf("Remove Cache Lock acquired%d\n", temp_lock_val);
+    printf("Remove Cache Lock acquired %d\n", temp_lock_val);
 
     if(head!= NULL){
         site = head;
         while(site!= NULL){
             if(!strcmp(site->url, url)){
-                printf("LRU time track before : %ld\n", site->lru_time_track);
+                printf("LRU time track before: %ld\n", site->lru_time_track);
                 printf("URL found\n");
                 site->lru_time_track = time(NULL);
-                printf("LRU time track after:%ld\n", site->lru_time_track);
+                printf("LRU time track after: %ld\n", site->lru_time_track);
                 break;
             }
             site = site->next;
@@ -410,7 +415,7 @@ cache_element* find(char* url){
         printf("URL not found\n");
     }
     temp_lock_val = pthread_mutex_unlock(&lock);
-    printf("Remove Cache Lock released%d\n", temp_lock_val);
+    printf("Remove Cache Lock released %d\n", temp_lock_val);
     return site;
     
 }
