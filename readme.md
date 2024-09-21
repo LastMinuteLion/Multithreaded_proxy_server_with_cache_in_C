@@ -50,9 +50,6 @@ To run the server on port 8080:
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes. For more details, check the [Eraser Workspace](https://app.eraser.io/workspace/Z0PC1gUS3qRn9oAB8mDI?origin=share).
 
-## License
-This project is licensed under the MIT License.
 
----
 
 Feel free to modify any sections to better fit your project's specifics or your personal preferences!
